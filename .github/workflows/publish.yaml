@@ -1,0 +1,27 @@
+name: Publish
+on: 
+  workflow_dispatch:
+
+jobs:
+  deploy_to_staging:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out dev repo
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      with:
+        persist-credentials: false
+
+    - name: Log in to the Container registry
+      uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Publish Addon Image
+      uses: home-assistant/builder@a60da4f9075353679f2d9f5d708526e2403144dd
+      with:
+        args: |
+          --all \
+          --target cheerlights \
+          --docker-hub "ghcr.io/jt-nti"

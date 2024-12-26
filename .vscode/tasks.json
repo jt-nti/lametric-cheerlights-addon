@@ -1,0 +1,61 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Home Assistant",
+            "type": "shell",
+            "command": "supervisor_run",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Home Assistant add-on build tool (borked)",
+            "type": "shell",
+            "command": "docker run --rm -it --name builder --privileged -v /cheerlights:/data -v /var/run/docker.sock:/var/run/docker.sock:ro ghcr.io/home-assistant/amd64-builder -t /data --all --test -i lametric-cheerlights-addon-{arch} -d local",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build cheerlights add-on",
+            "type": "shell",
+            "command": "docker build --build-arg BUILD_FROM='homeassistant/amd64-base:3.15' --build-arg CHEERLIGHTS_COMMIT=233d32a3de848b86cb368b88da9eb5a27a37c251 -t local/lametric-cheerlights-addon ./cheerlights",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run cheerlights add-on",
+            "type": "shell",
+            "command": "docker run --rm -v ${workspaceFolder}/.data:/data local/lametric-cheerlights-addon",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

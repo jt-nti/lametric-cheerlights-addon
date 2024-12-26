@@ -1,0 +1,11 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
+build_from:
+  aarch64: "ghcr.io/home-assistant/aarch64-base:3.15"
+  amd64: "ghcr.io/home-assistant/amd64-base:3.15"
+labels:
+  org.opencontainers.image.title: "LaMetric Cheerlights server add-on"
+  org.opencontainers.image.description: "Home Assistant add-on to run the LaMetric Cheerlights server."
+  org.opencontainers.image.source: "https://github.com/jt-nti/lametric-cheerlights-addon"
+  org.opencontainers.image.licenses: "Apache License 2.0"
+args:
+  CHEERLIGHTS_COMMIT: 233d32a3de848b86cb368b88da9eb5a27a37c251

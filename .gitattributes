@@ -1,0 +1,6 @@
+* text=auto
+
+# Shell scripts require LF
+*.sh text eol=lf
+finish text eol=lf
+run text eol=lf

@@ -1,0 +1,25 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
+set -e
+
+# ==============================================================================
+# Start the example service
+# s6-overlay docs: https://github.com/just-containers/s6-overlay
+# ==============================================================================
+
+# Add your code here
+
+# Declare variables
+declare ACCESS_TOKEN
+declare WIDGET_ID
+
+## Get the 'token' key from the user config options.
+ACCESS_TOKEN=$(bashio::config 'token')
+
+## Get the 'widget' key from the user config options.
+WIDGET_ID=$(bashio::config 'widget')
+
+## Run your program
+export ACCESS_TOKEN
+export WIDGET_ID
+exec /usr/bin/node /addon/index.js
