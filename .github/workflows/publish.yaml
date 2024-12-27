@@ -19,7 +19,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish Addon Image
-      uses: home-assistant/builder@2024.08.02
+      uses: home-assistant/builder@2024.08.2
       with:
         args: |
           --all \
