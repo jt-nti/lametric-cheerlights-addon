@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: LaMetric Cheerlights server add-on
-version: "0.1.0"
+version: "0.2.0"
 slug: lametric-cheerlights-addon
 description: Home Assistant add-on to run the LaMetric Cheerlights server
 url: "https://github.com/jt-nti/lametric-cheerlights-addon/tree/main/cheerlights"

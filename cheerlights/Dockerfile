@@ -7,8 +7,8 @@ RUN \
   apk add --no-cache \
     nodejs npm
 
-# Copy root filesystem
-COPY rootfs /
+# Copy scripts
+COPY --chmod=0755 finish run /etc/services.d/cheerlights/
 
 WORKDIR /addon
 

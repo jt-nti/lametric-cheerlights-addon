@@ -20,6 +20,7 @@ ACCESS_TOKEN=$(bashio::config 'token')
 WIDGET_ID=$(bashio::config 'widget')
 
 ## Run your program
+bashio::log.info "Starting LaMetric Cheelights server"
 export ACCESS_TOKEN
 export WIDGET_ID
 exec /usr/bin/node /addon/index.js
