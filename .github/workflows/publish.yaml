@@ -24,4 +24,5 @@ jobs:
         args: |
           --all \
           --target cheerlights \
-          --docker-hub "ghcr.io/jt-nti"
+          --image {arch}-lametric-cheerlights-addon \
+          --docker-hub "ghcr.io/${{ github.repository_owner }}" \
