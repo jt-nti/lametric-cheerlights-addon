@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy_to_staging:
+  publish_addon:
     runs-on: ubuntu-latest
     steps:
     - name: Check out dev repo
@@ -19,7 +19,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish Addon Image
-      uses: home-assistant/builder@a60da4f9075353679f2d9f5d708526e2403144dd
+      uses: home-assistant/builder@2024.08.02
       with:
         args: |
           --all \
